@@ -35,7 +35,7 @@
   animation-name: walk;
   animation-timing-function: steps(8);
   animation-iteration-count: infinite; /* Infinite animation loop */
-  animation-duration: 800ms;
+  animation-duration: 700ms;
   animation-delay: -0.5s;
 }
 
@@ -89,6 +89,11 @@
   border-radius: 5px;
   font-weight: lighter;
 }
+
+.pause-btn:hover {
+  cursor: pointer;
+}
+
 .running {
   animation-play-state: running;
 }
