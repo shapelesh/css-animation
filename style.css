@@ -1,0 +1,101 @@
+/* Importing a Font */
+@import url("https://fonts.googleapis.com/css?family=Arima+Madurai:300");
+
+/* Resetting default styles for all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Arima Madurai", cursive;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Styling for the main container */
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  gap: 60px;
+}
+
+/* Styling the "man" element */
+.man {
+  background-image: url(./sprites/walk-sequence-upgraded.svg); /* Setting a background image */
+  background-size: auto 100%;
+  width: 100px;
+  height: 125px;
+
+  /* Animation Related */
+  animation-name: walk;
+  animation-timing-function: steps(8);
+  animation-iteration-count: infinite; /* Infinite animation loop */
+  animation-duration: 800ms;
+  animation-delay: -0.5s;
+}
+
+/* Keyframes animation definition for "walk" animation */
+@keyframes walk {
+  100% {
+    background-position: -790px 0;
+  }
+}
+
+/* Styling the animation container */
+.animation-container {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  transform: scale(1) translateX(0);
+  animation-name: walk-container;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; /* Infinite animation loop */
+  animation-duration: 15s;
+  animation-delay: 0;
+}
+
+/* Keyframes animation definition for "walk-container" animation */
+@keyframes walk-container {
+  0% {
+    transform: translateX(-5vw);
+  }
+  100% {
+    transform: translateX(110vw);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .animation-container {
+    animation-duration: 3s;
+  }
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pause-btn {
+  border: none;
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  font-weight: lighter;
+}
+.running {
+  animation-play-state: running;
+}
+.paused {
+  animation-play-state: paused;
+}
+
+body {
+  background-color: coral;
+}
